@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\doctors_controller;
+use App\Http\Controllers\blogs_controller;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,63 +20,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
+Route::get('/home',function(){
     return view('index');
 });
 
-Route::get('/buttons', function () {
-    return view('buttons');
+Route::get('/blog-details',function(){
+    return view('blog-details');
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/blog',function(){
+    return view('blog');
 });
 
-Route::get('/404', function () {
-    return view('404');
+Route::get('/contact',function(){
+    return view('contact');
 });
 
-Route::get('/blank', function () {
-    return view('blank');
+Route::get('/aboutus',function(){
+    return view('about');
 });
 
-Route::get('/buttons', function () {
-    return view('buttons');
+Route::get('/doctors',function(){
+    return view('doctors');
 });
 
-Route::get('/cards', function () {
-    return view('cards');
-});
 
-Route::get('/charts', function () {
-    return view('charts');
-});
+Route::resource('/doctors',doctors_controller::class);
+Route::resource('/blogs',blogs_controller::class);
 
-Route::get('/forgot-password', function () {
-    return view('forgot-password');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/tables', function () {
-    return view('tables');
-});
-
-Route::get('/utilities-animation', function () {
-    return view('utilities-animation');
-});
-Route::get('/utilities-border', function () {
-    return view('utilities-border');
-});
-Route::get('/utilities-color', function () {
-    return view('utilities-color');
-});
-Route::get('/utilities-other', function () {
-    return view('utilities-other');
-});
+Route::resource('/hometest',HomeController::class);
